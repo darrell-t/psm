@@ -66,8 +66,7 @@
 		      			<li class="nav-item menu-open">
 		            		<a href="#" class="nav-link active">
 			              		<i class="nav-icon fas fa-tachometer-alt"></i>
-			              		<p>Manage System<i class="right fas fa-angle-left"></i></p>
-		            		</a>
+			              		<p>Manage System<i class="right fas fa-angle-left"></i></p></a>
 		            		<ul class="nav nav-treeview">
 		              			<li class="nav-item">
 		                		<a href="index.php" class="nav-link active">
@@ -129,13 +128,7 @@
 	      		<div class="container-fluid">
 	        		<div class="row mb-2">
 	          			<div class="col-sm-6">
-	            			<h1 class="m-0">Dashboard</h1>
-	          			</div><!-- /.col -->
-	          			<div class="col-sm-6">
-            				<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active">Dashboard</li>
-	            			</ol>
+	            			<h1 class="m-0">Charts</h1>
 	          			</div><!-- /.col -->
         			</div><!-- /.row -->
 	      		</div><!-- /.container-fluid -->

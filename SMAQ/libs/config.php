@@ -20,4 +20,14 @@
 	function thresholdInc(){
 		include "../BusinessLayer/getThresholdM.php";
 	}
+
+	function sensorsViewInc(){
+		include "../BusinessLayer/displayThresholdC.php";
+		include "../BusinessLayer/displayThresholdM.php";
+
+	}
+
+	function updateThresholdInc(){
+		include "../BusinessLayer/updateThresholdM.php";
+	}
 ?>

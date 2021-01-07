@@ -6,6 +6,5 @@
 		echo "\n";
 		echo $row['minRange'];
 		echo "\n";
-
 	}
 ?>

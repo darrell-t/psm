@@ -1,3 +1,10 @@
+<?php
+	include "../libs/config.php";
+	sensorsViewInc();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +20,11 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../libs/dist/css/adminlte.min.css">
+  <style>
+  	input[type=number] {
+  		-moz-appearance: textfield;
+	}
+  </style>
 </head>
 <!--
 `body` tag options:
@@ -55,11 +67,8 @@
           <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Manage System
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
+              <p>Manage System<i class="right fas fa-angle-left"></i></p>
+          </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="index.php" class="nav-link">
@@ -127,13 +136,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
-            </ol>
+            <h1 class="m-0">Sensor Threshold</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -145,136 +148,139 @@
       <div class="container-fluid">
       						<div class="row">
 						<div class="col-lg-6">
-							<!-- Water Temp Card-->
-							<div class="card">
-								<div class="card-header border-0">
-									<h3 class="card-title"><i class="fas fa-temperature-high"></i>    Water Temperature (°C)</h3>
-									<div class="card-tools">
-										<a href="../BusinessLayer/generateReportC.php?exportWaterTemp=true" style="color: inherit;">
-											<i class="fas fa-download"></i>
-										</a>
-									</div>
-								</div>
-								<div class="card-body table-responsive p-0" id="waterTemp">
-									<table class="table table-striped table-valign-middle">
-										<thead>
-											<tr>
-												<th>Value</th>
-												<th>Time</th>
-											</tr>
-										</thead>
-										<tbody>
-											
-										</tbody>
-									</table>
+							
+							<!-- Water Temperature Range Card -->
+							<div class="small-box bg-danger" style="height: 220px">
+								<div class="inner">
+									<form id="sensorForm1" method="GET" action="../BusinessLayer/updateThresholdC.php">
+									<h2>Water Temperature (°C)</h2>
+									<h3 style="text-align: left; float: left;"><?php displayWaterTempMin(); ?></h3>
+									<h3 style="text-align: center; float: center;"><?php displayWaterTempMax(); ?></h3>
 
+									<h5 style="text-align: left; float: left;">Min</h5>
+									<h5 style="text-align: center; float: center;">Max</h5>
+									<input type="hidden" name="sensorName" value="water_temperature">
+									<input type="number" name="waterTempMin" step=".01" style="text-align: left; width: 80px; height: 40px; font-size: 20px; font-weight: 600;">
+									<input type="number" name="waterTempMax" step=".01" style="text-align: left; margin-left: 311px; width: 80px; height: 40px; font-size: 20px; font-weight: 600;">
+									<button type="submit" name="submitWaterTemp"class="btn btn-app" style="float: right; margin-right: 20px">
+					                  	<i class="fas fa-edit"></i> Update
+					                </button>
+									</form>
 								</div>
+								<div class="icon">
+									<i class="fas fa-temperature-high"></i>
+								</div>
+
 							</div>
-							<!-- /.Water Temp Card -->
+     						<!-- /.Water Temperature Range Card -->
 
-							<!-- Air Temp Card-->
-							<div class="card">
-								<div class="card-header border-0">
-									<h3 class="card-title"><i class="fas fa-wind"></i>    Air Temperature (°C)</h3>
-									<div class="card-tools">
-										<a href="../BusinessLayer/generateReportC.php?exportAirTemp=true" style="color: inherit;">
-											<i class="fas fa-download"></i>
-										</a>
-									</div>
-								</div>
-								<div class="card-body table-responsive p-0" id="airTemp">
-									<table class="table table-striped table-valign-middle">
-										<thead>
-											<tr>
-												<th>Value</th>
-												<th>Time</th>
-											</tr>
-										</thead>
-										<tbody>
-											
-										</tbody>
-									</table>
+							<!-- Air Temperature Range Card -->
+							<div class="small-box bg-danger" style="height: 220px">
+								<div class="inner">
+									<form id="sensorForm2" method="GET" action="../BusinessLayer/updateThresholdC.php">
+									<h2>Air Temperature (°C)</h2>
+									<h3 style="text-align: left; float: left;"><?php displayAirTempMin(); ?></h3>
+									<h3 style="text-align: center; float: center;"><?php displayAirTempMax(); ?></h3>
+
+									<h5 style="text-align: left; float: left;">Min</h5>
+									<h5 style="text-align: center; float: center;">Max</h5>
+									<input type="hidden" name="sensorName" value="air_temperature">
+									<input type="number" name="airTempMin" step=".01" style="text-align: left; width: 80px; height: 40px; font-size: 20px; font-weight: 600;">
+									<input type="number"name="airTempMax" step=".01" style="text-align: left; margin-left: 311px; width: 80px; height: 40px; font-size: 20px; font-weight: 600;">
+									<button type="submit" name="submitAirTemp" class="btn btn-app" style="float: right; margin-right: 20px">
+					                  	<i class="fas fa-edit"></i> Update
+					                </button>
+									</form>
+
 
 								</div>
+								<div class="icon">
+									<i class="fas fa-wind"></i>
+								</div>
+
 							</div>
-							<!-- /.Air Temp Card-->
+     						<!-- /.Air Temperature Range Card -->
 
-							<!-- Light Intensity Card -->
-							<div class="card">
-								<div class="card-header border-0">
-									<h3 class="card-title"><i class="fas fa-lightbulb"></i>    Light Intensity (lx)</h3>
-									<div class="card-tools">
-										<a href="../BusinessLayer/generateReportC.php?exportLightInt=true" style="color: inherit;">
-											<i class="fas fa-download"></i>
-										</a>
-									</div>
-								</div>
-								<div class="card-body table-responsive p-0" id="lightInt">
-									<table class="table table-striped table-valign-middle">
-										<thead>
-											<tr>
-												<th>Value</th>
-												<th>Time</th>
-											</tr>
-										</thead>
-										<tbody>
-											
-										</tbody>
-										</table>
+							<!-- Light Intensity Range Card -->
+							<div class="small-box bg-warning" style="height: 220px">
+								<div class="inner">
+									<form id="sensorForm3" method="GET" action="../BusinessLayer/updateThresholdC.php">
+									<h2>Light Intensity (lx)</h2>
+									<h3 style="text-align: left; float: left;"><?php displayLightMin(); ?></h3>
+									<h3 style="text-align: center; float: center;"><?php displayLightMax(); ?></h3>
 
+									<h5 style="text-align: left; float: left;">Min</h5>
+									<h5 style="text-align: center; float: center;">Max</h5>
+									<input type="hidden" name="sensorName" value="light_intensity">
+									<input type="number" name="lightIntMin" step=".01" style="text-align: left; width: 80px; height: 40px; font-size: 20px; font-weight: 600;">
+									<input type="number" name="lightIntMax" step=".01" style="text-align: left; margin-left: 311px; width: 80px; height: 40px; font-size: 20px; font-weight: 600;">
+									<button type="submit" name="submitLightInt" class="btn btn-app" style="float: right; margin-right: 20px">
+					                  	<i class="fas fa-edit"></i> Update
+					                </button>
+					            	</form>
 								</div>
+								<div class="icon">
+									<i class="fas fa-lightbulb"></i>
+								</div>
+
 							</div>
-							<!-- /.Light Intensity Card -->
+     						<!-- /.Light Intensity Range Card -->
 
 						</div>
 						<!-- /.col-md-6 -->
 
 						<div class="col-lg-6">
-							<!-- pH Level Card -->
-							<div class="card">
-								<div class="card-header border-0">
-									<h3 class="card-title"><i class="fas fa-vial"></i>    pH Level</h3>
-								</div>
-								<div class="card-body table-responsive p-0" id="phLevel">
-									<table class="table table-striped table-valign-middle">
-										<thead>
-											<tr>
-												<th>Value</th>
-												<th>Time</th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php 
-												for($i = 0; $i < 5; $i++){
-													echo "<tr>";
-													echo "<td>" . ($i + 1) . "</td>";
-													echo "<td>" . ($i + 1) . "</td>";
-													echo "</tr>";
-												}
-											?>
-										</tbody>
-									</table>
+							<!-- pH Range Card -->
+							<div class="small-box bg-success" style="height: 220px">
+								<div class="inner">
+									<form id="sensorForm4" method="GET" action="../BusinessLayer/updateThresholdC.php">
+									<h2>pH Level</h2>
+									<h3 style="text-align: left; float: left;">20.00</h3>
+									<h3 style="text-align: center; float: center;">30.00</h3>
 
-								</div>
-							</div>
-							<!-- /.pH Level Card -->
-
-							<!-- Air Humidity Card -->
-							<div class="card">
-								<div class="card-header border-0">
-									<h3 class="card-title"><i class="fas fa-tint"></i>    Relative Humidity (%)</h3>
-									<div class="card-tools">
-										<a href="../BusinessLayer/generateReportC.php?exportAirHum=true" style="color: inherit;">
-											<i class="fas fa-download"></i>
-										</a>
-									</div>
-								</div>
-								<div class="card-body table-responsive p-0" id="airHum">
+									<h5 style="text-align: left; float: left;">Min</h5>
+									<h5 style="text-align: center; float: center;">Max</h5>
 									
+									<input type="number" step=".01" style="text-align: left; width: 80px; height: 40px; font-size: 20px; font-weight: 600;">
+									<input type="number" step=".01" style="text-align: left; margin-left: 311px; width: 80px; height: 40px; font-size: 20px; font-weight: 600;">
+									<button type="submit" name="submitpHLevel" class="btn btn-app" style="float: right; margin-right: 20px">
+					                  	<i class="fas fa-edit"></i> Update
+					                </button>
+									</form>
 
 								</div>
+								<div class="icon">
+									<i class="fas fa-vial"></i>
+								</div>
+
 							</div>
-							<!-- /.Air Humidity Card -->
+     						<!-- /.pH Range Card -->
+
+							<!-- Relative Humidity Range Card -->
+							<div class="small-box bg-info" style="height: 220px">
+								<div class="inner">
+									<form id="sensorForm5" method="GET" action="../BusinessLayer/updateThresholdC.php">
+									<h2>Relative Humidity (%)</h2>
+									<h3 style="text-align: left; float: left;"><?php displayAirHumMin(); ?></h3>
+									<h3 style="text-align: center; float: center;"><?php displayAirHumMax(); ?></h3>
+
+									<h5 style="text-align: left; float: left;">Min</h5>
+									<h5 style="text-align: center; float: center;">Max</h5>
+									<input type="hidden" name="sensorName" value="air_humidity">
+									<input type="number" name="airHumMin" step=".01" style="text-align: left; width: 80px; height: 40px; font-size: 20px; font-weight: 600;">
+									<input type="number" name="airHumMax" step=".01" style="text-align: left; margin-left: 311px; width: 80px; height: 40px; font-size: 20px; font-weight: 600;">
+									<button type="submit" name="submitAirHum" class="btn btn-app" style="float: right; margin-right: 20px">
+					                  	<i class="fas fa-edit"></i> Update
+					                </button>
+									</form>
+
+								</div>
+								<div class="icon">
+									<i class="fas fa-tint"></i>
+								</div>
+
+							</div>
+     						<!-- /.Relative Humidity Range Card -->
 						</div>
 						<!-- /.col-md-6 -->
 					</div>
@@ -317,5 +323,20 @@
 <script src="../libs/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../libs/dist/js/pages/dashboard3.js"></script>
+<script type="text/javascript">
+	$(window).bind("pageshow", function() {
+		var form1 = $('#sensorForm1'); 
+		var form2 = $('#sensorForm2'); 
+		var form3 = $('#sensorForm3'); 
+		var form4 = $('#sensorForm4'); 
+		var form5 = $('#sensorForm5'); 
+
+		form1[0].reset();
+		form2[0].reset();
+		form3[0].reset();
+		form4[0].reset();
+		form5[0].reset();
+	});
+</script>
 </body>
 </html>
