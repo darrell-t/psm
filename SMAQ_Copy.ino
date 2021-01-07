@@ -19,10 +19,10 @@
 DHT dht(DHTPIN, DHTTYPE);
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
-const char *ssid = "jowettkoay";  //WiFi details
-const char *password = "0125846778eddie";  //WiFi details
+const char *ssid = "WIFIID";  //WiFi details
+const char *password = "PW";  //WiFi details
 const int ldrPin = A0;
-EMailSender emailSend("smaqsystest@gmail.com", "inlfphaoetabdwxq"); // Email sender account
+EMailSender emailSend("smaqsystest@gmail.com", "PW"); // Email sender account
 
 struct sensorCondition {
   float readings;
@@ -57,7 +57,7 @@ void connectWifi(){
 String readSensorThreshold(){
   //Serial.println("Whole String:  ");
   HTTPClient http;
-  http.begin("http://192.168.0.111/psm/SMAQ/BusinessLayer/getThreshold.php"); 
+  http.begin("URL/getThreshold.php"); 
   int httpCode = http.GET();   //Send request
   String payload = http.getString();
   //Serial.println(payload);
@@ -221,7 +221,7 @@ void sendReadings(struct sensorCondition waterTemp, struct sensorCondition airTe
   HTTPClient http;
   String postData;
   postData = "waterTemp=" + String(waterTemp.readings) + "&airTemp=" + String(airTemp.readings) + "&airHum=" + String(airHum.readings) + "&lightInt=" + String(lightInt.readings);
-  http.begin("http://192.168.0.111/psm/SMAQ/BusinessLayer/postReadings.php");
+  http.begin("URL/postReadings.php");
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
   int httpCode = http.POST(postData);
   String payload = http.getString();
