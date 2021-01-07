@@ -57,7 +57,7 @@ void connectWifi(){
 String readSensorThreshold(){
   //Serial.println("Whole String:  ");
   HTTPClient http;
-  http.begin("http://192.168.0.111/SMAQ/BusinessLayer/test.php"); 
+  http.begin("http://192.168.0.111/psm/SMAQ/BusinessLayer/getThreshold.php"); 
   int httpCode = http.GET();   //Send request
   String payload = http.getString();
   //Serial.println(payload);
@@ -160,7 +160,7 @@ struct sensorCondition readAirHum(float aHumMax, float aHumMin){
       // Send alert email
       if(airHumFlag == 1){
         EMailSender::EMailMessage message;
-        message.subject = "SMAQ System Alert (Light Intensity)";
+        message.subject = "SMAQ System Alert (Relative Humidity)";
         message.message = "Relative Humidity is at " + String(airHum.readings) + "%";
         EMailSender::Response resp = emailSend.send("smaqsystest@gmail.com", message);
         Serial.println("Sending status: ");
@@ -221,7 +221,7 @@ void sendReadings(struct sensorCondition waterTemp, struct sensorCondition airTe
   HTTPClient http;
   String postData;
   postData = "waterTemp=" + String(waterTemp.readings) + "&airTemp=" + String(airTemp.readings) + "&airHum=" + String(airHum.readings) + "&lightInt=" + String(lightInt.readings);
-  http.begin("http://192.168.0.112/SMAQ/BusinessLayer/postReadings.php");
+  http.begin("http://192.168.0.111/psm/SMAQ/BusinessLayer/postReadings.php");
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
   int httpCode = http.POST(postData);
   String payload = http.getString();
@@ -256,7 +256,7 @@ void loop() {
   airTemp = readAirTemp(aTempMax, aTempMin);
   airHum = readAirHum(aHumMax, aHumMin);
   lightInt = readLightInt(lightMax, lightMin);
-  if(waterTemp.ledAlert == 1 || airTemp.ledAlert == 1 || lightInt.ledAlert == 1){
+  if(waterTemp.ledAlert == 1 || airTemp.ledAlert == 1 || lightInt.ledAlert == 1 || airHum.ledAlert == 1){
     digitalWrite(2, HIGH);
   }
   else{
