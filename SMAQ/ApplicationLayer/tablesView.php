@@ -300,9 +300,9 @@
 	<script src="../libs/plugins/jquery/jquery.min.js"></script>
 	<script src="../libs/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="../libs/dist/js/adminlte.js"></script>
-	<script src="../libs/plugins/chart.js/Chart.min.js"></script>
+	<!--<script src="../libs/plugins/chart.js/Chart.min.js"></script>
 	<script src="../libs/dist/js/demo.js"></script>
-	<script src="../libs/dist/js/pages/dashboard3.js"></script>
+	<script src="../libs/dist/js/pages/dashboard3.js"></script> -->
 	<script type="text/javascript">
 		$(document).ready(function(){
 			setInterval(function(){
