@@ -6,9 +6,6 @@
 		include "../BusinessLayer/postReadings.php";
 	}
 
-	function generateReportInc(){
-
-	}
 	function displayChartInc(){
 		include "../BusinessLayer/chartC.php";
 	}
@@ -24,7 +21,6 @@
 	function sensorsViewInc(){
 		include "../BusinessLayer/displayThresholdC.php";
 		include "../BusinessLayer/displayThresholdM.php";
-
 	}
 
 	function updateThresholdInc(){

@@ -24,6 +24,9 @@
 				updateThresholdMin($sensorName, $waterTempMin);
 				header("location:../ApplicationLayer/sensorsView.php");
 			}
+			else{
+				header("location:../ApplicationLayer/sensorsView.php?input=false");
+			}
 		}
 	}
 	else if(isset($_GET['submitAirTemp'])){
@@ -48,6 +51,9 @@
 				$sensorName = $_GET['sensorName'];
 				updateThresholdMin($sensorName, $airTempMin);
 				header("location:../ApplicationLayer/sensorsView.php");
+			}
+			else{
+				header("location:../ApplicationLayer/sensorsView.php?input=false");
 			}
 		}
 
@@ -75,6 +81,9 @@
 				updateThresholdMin($sensorName, $airHumMin);
 				header("location:../ApplicationLayer/sensorsView.php");
 			}
+			else{
+				header("location:../ApplicationLayer/sensorsView.php?input=false");
+			}
 		}
 
 	}
@@ -101,8 +110,14 @@
 				updateThresholdMin($sensorName, $lightIntMin);
 				header("location:../ApplicationLayer/sensorsView.php");
 			}
+			else{
+				header("location:../ApplicationLayer/sensorsView.php?input=false");
+			}
 		}
 
+	}
+	else{
+		header("location:../ApplicationLayer/sensorsView.php?input=false");
 	}
 
 

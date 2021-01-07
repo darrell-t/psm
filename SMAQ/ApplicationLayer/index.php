@@ -7,14 +7,9 @@
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<title>SMAQ | Charts</title>
-
-	<!-- Google Font: Source Sans Pro -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-	<!-- Font Awesome Icons -->
 	<link rel="stylesheet" href="../libs/plugins/fontawesome-free/css/all.min.css">
-	<!-- IonIcons -->
 	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-	<!-- Theme style -->
 	<link rel="stylesheet" href="../libs/dist/css/adminlte.min.css">
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -120,7 +115,6 @@
 	    	</div>
 			<!-- /.sidebar -->
 		</aside>
-
 	  	<!-- Content Wrapper. Contains page content -->
   		<div class="content-wrapper">
 	    	<!-- Content Header (Page header) -->
@@ -159,7 +153,6 @@
 	              				</div>
 	            			</div>
 	            			<!-- /.Water Temp Card -->
-
 	            			<!-- Air Temp Card -->
 	            			<div class="card">
 	              				<div class="card-header border-0">
@@ -180,7 +173,6 @@
 	             			 	</div>
 	            			</div>
 	            			<!-- /.Air Temp Card -->
-
 	            			<!-- Light Int Card -->
 	            			<div class="card">
 	              				<div class="card-header border-0">
@@ -231,14 +223,14 @@
 	                  					<div class="page-wrapper">
 		                    				<br>
 		                    				<h4 align="center"><i class="fas fa-tint"></i>  Air Humidity</h4>
-		                    					<div  id="airHumChart">
-		                    						<script>
-		                      							$(document).ready(function(){
-		                        							setInterval(function(){
-		                          							$('#airHumChart').load('chartAirHum.php')}, 5000);
-	                      								})
-		                    						</script>
-		                  						</div>
+	                    					<div  id="airHumChart">
+	                    						<script>
+	                      							$(document).ready(function(){
+	                        							setInterval(function(){
+	                          							$('#airHumChart').load('chartAirHum.php')}, 5000);
+                      								})
+	                    						</script>
+	                  						</div>
 	                  					</div>
 	                				</div>
 	              				</div>
@@ -254,11 +246,9 @@
 	    	<!-- /.content -->
   		</div>
 	 	<!-- /.content-wrapper -->
-
 	  	<!-- Control Sidebar -->
 	  	<aside class="control-sidebar control-sidebar-dark"></aside>
 	  	<!-- /.control-sidebar -->
-
  	 	<!-- Main Footer -->
 	  	<footer class="main-footer">
 	    	<strong>SMAQ</strong>
@@ -268,8 +258,7 @@
 	  	</footer>
 	</div>
 	<!-- ./wrapper -->
-
-	<!-- SCRIPTS -->
+	<!-- Scripts -->
 	<script src="../libs/plugins/jquery/jquery.min.js"></script>
 	<script src="../libs/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="../libs/dist/js/adminlte.js"></script>
