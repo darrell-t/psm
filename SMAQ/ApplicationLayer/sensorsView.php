@@ -143,10 +143,142 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-      	<form method="GET" action="../BusinessLayer/getThresholdC.php">
-      		<input type="number" name="wTempMax" step=".01">
-      		<button type="submit">Submit</button>
-      	</form>
+      						<div class="row">
+						<div class="col-lg-6">
+							<!-- Water Temp Card-->
+							<div class="card">
+								<div class="card-header border-0">
+									<h3 class="card-title"><i class="fas fa-temperature-high"></i>    Water Temperature (°C)</h3>
+									<div class="card-tools">
+										<a href="../BusinessLayer/generateReportC.php?exportWaterTemp=true" style="color: inherit;">
+											<i class="fas fa-download"></i>
+										</a>
+									</div>
+								</div>
+								<div class="card-body table-responsive p-0" id="waterTemp">
+									<table class="table table-striped table-valign-middle">
+										<thead>
+											<tr>
+												<th>Value</th>
+												<th>Time</th>
+											</tr>
+										</thead>
+										<tbody>
+											
+										</tbody>
+									</table>
+
+								</div>
+							</div>
+							<!-- /.Water Temp Card -->
+
+							<!-- Air Temp Card-->
+							<div class="card">
+								<div class="card-header border-0">
+									<h3 class="card-title"><i class="fas fa-wind"></i>    Air Temperature (°C)</h3>
+									<div class="card-tools">
+										<a href="../BusinessLayer/generateReportC.php?exportAirTemp=true" style="color: inherit;">
+											<i class="fas fa-download"></i>
+										</a>
+									</div>
+								</div>
+								<div class="card-body table-responsive p-0" id="airTemp">
+									<table class="table table-striped table-valign-middle">
+										<thead>
+											<tr>
+												<th>Value</th>
+												<th>Time</th>
+											</tr>
+										</thead>
+										<tbody>
+											
+										</tbody>
+									</table>
+
+								</div>
+							</div>
+							<!-- /.Air Temp Card-->
+
+							<!-- Light Intensity Card -->
+							<div class="card">
+								<div class="card-header border-0">
+									<h3 class="card-title"><i class="fas fa-lightbulb"></i>    Light Intensity (lx)</h3>
+									<div class="card-tools">
+										<a href="../BusinessLayer/generateReportC.php?exportLightInt=true" style="color: inherit;">
+											<i class="fas fa-download"></i>
+										</a>
+									</div>
+								</div>
+								<div class="card-body table-responsive p-0" id="lightInt">
+									<table class="table table-striped table-valign-middle">
+										<thead>
+											<tr>
+												<th>Value</th>
+												<th>Time</th>
+											</tr>
+										</thead>
+										<tbody>
+											
+										</tbody>
+										</table>
+
+								</div>
+							</div>
+							<!-- /.Light Intensity Card -->
+
+						</div>
+						<!-- /.col-md-6 -->
+
+						<div class="col-lg-6">
+							<!-- pH Level Card -->
+							<div class="card">
+								<div class="card-header border-0">
+									<h3 class="card-title"><i class="fas fa-vial"></i>    pH Level</h3>
+								</div>
+								<div class="card-body table-responsive p-0" id="phLevel">
+									<table class="table table-striped table-valign-middle">
+										<thead>
+											<tr>
+												<th>Value</th>
+												<th>Time</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php 
+												for($i = 0; $i < 5; $i++){
+													echo "<tr>";
+													echo "<td>" . ($i + 1) . "</td>";
+													echo "<td>" . ($i + 1) . "</td>";
+													echo "</tr>";
+												}
+											?>
+										</tbody>
+									</table>
+
+								</div>
+							</div>
+							<!-- /.pH Level Card -->
+
+							<!-- Air Humidity Card -->
+							<div class="card">
+								<div class="card-header border-0">
+									<h3 class="card-title"><i class="fas fa-tint"></i>    Relative Humidity (%)</h3>
+									<div class="card-tools">
+										<a href="../BusinessLayer/generateReportC.php?exportAirHum=true" style="color: inherit;">
+											<i class="fas fa-download"></i>
+										</a>
+									</div>
+								</div>
+								<div class="card-body table-responsive p-0" id="airHum">
+									
+
+								</div>
+							</div>
+							<!-- /.Air Humidity Card -->
+						</div>
+						<!-- /.col-md-6 -->
+					</div>
+					<!-- /.row -->
       </div>
       <!-- /.container-fluid -->
     </div>
