@@ -100,7 +100,7 @@
 			}
 			$output .= '</table>';
 			header('Content-Type: application/xls');
-			header('Content-Disposition: attachment; filename=Light_Int_Report.xls');
+			header('Content-Disposition: attachment; filename=Relative_Hum_Report.xls');
 			echo $output;
 		}
 	}
