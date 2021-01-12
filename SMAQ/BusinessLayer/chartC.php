@@ -19,4 +19,9 @@
 		$jsonTable = fetchChartLightInt();
 		return $jsonTable;
 	}
+
+	function displayChartpHLevel(){
+		$jsonTable = fetchChartpHLevel();
+		return $jsonTable;
+	}
 ?>

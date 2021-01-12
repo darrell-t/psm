@@ -202,6 +202,11 @@
 							<div class="card">
 								<div class="card-header border-0">
 									<h3 class="card-title"><i class="fas fa-vial"></i>    pH Level</h3>
+									<div class="card-tools">
+										<a href="../BusinessLayer/generateReportC.php?exportphLevel=true" style="color: inherit;">
+											<i class="fas fa-download"></i>
+										</a>
+									</div>
 								</div>
 								<div class="card-body table-responsive p-0" id="phLevel">
 									<table class="table table-striped table-valign-middle">
@@ -212,14 +217,7 @@
 											</tr>
 										</thead>
 										<tbody>
-											<?php 
-												for($i = 0; $i < 5; $i++){
-													echo "<tr>";
-													echo "<td>" . ($i + 1) . "</td>";
-													echo "<td>" . ($i + 1) . "</td>";
-													echo "</tr>";
-												}
-											?>
+											<?php phLevelReadings(); ?>
 										</tbody>
 									</table>
 

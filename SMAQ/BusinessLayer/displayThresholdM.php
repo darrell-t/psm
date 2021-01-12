@@ -78,4 +78,24 @@
 		}
 		return $minRange;
 	}
+
+	function phLevelMax(){
+		global $conn;
+		$query = "SELECT FORMAT(maxRange, 2) AS maxRange FROM sensor_threshold WHERE sensorName = 'ph_level'";
+		$result = mysqli_query($conn, $query);
+		while($row = mysqli_fetch_array($result)) {
+			$maxRange = $row['maxRange'];
+		}
+		return $maxRange;
+	}
+
+	function phLevelMin(){
+		global $conn;
+		$query = "SELECT FORMAT(minRange, 2) AS minRange FROM sensor_threshold WHERE sensorName = 'ph_level'";
+		$result = mysqli_query($conn, $query);
+		while($row = mysqli_fetch_array($result)) {
+			$minRange = $row['minRange'];
+		}
+		return $minRange;
+	}
 ?>

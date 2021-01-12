@@ -105,4 +105,30 @@
 		}
 	}
 
+	function generatephLevel(){
+		global $conn;
+		$output = '';
+		$query = "SELECT * FROM ph_level ORDER BY sensorTime DESC";
+		$result = mysqli_query($conn, $query);
+		if(mysqli_num_rows($result) > 0){
+			$output .= '
+			<table class="table" bordered="1">  
+			<tr>  
+			<th>pH</th>  
+			<th>Time</th>  
+			</tr>';
+			while($row = mysqli_fetch_array($result)){
+				$output .= '
+				<tr>  
+				<td>'.$row["value"].'</td>  
+				<td>'.$row["sensorTime"].'</td>  
+				</tr>';
+			}
+			$output .= '</table>';
+			header('Content-Type: application/xls');
+			header('Content-Disposition: attachment; filename=pH_Level_Report.xls');
+			echo $output;
+		}
+	}
+
 ?>

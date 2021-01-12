@@ -195,14 +195,14 @@
 								<div class="inner">
 									<form id="sensorForm4" method="GET" action="../BusinessLayer/updateThresholdC.php">
 										<h2>pH Level</h2>
-										<h3 style="text-align: left; float: left;">20.00</h3>
-										<h3 style="text-align: center; float: center;">30.00</h3>
+										<h3 style="text-align: left; float: left;"><?php displayphLevelMin(); ?></h3>
+										<h3 style="text-align: center; float: center;"><?php displayphLevelMax(); ?></h3>
 
 										<h5 style="text-align: left; float: left;">Min</h5>
 										<h5 style="text-align: center; float: center;">Max</h5>
-
-										<input type="number" step=".01" style="text-align: left; width: 80px; height: 40px; font-size: 20px; font-weight: 600;">
-										<input type="number" step=".01" style="text-align: left; margin-left: 311px; width: 80px; height: 40px; font-size: 20px; font-weight: 600;">
+										<input type="hidden" name="sensorName" value="ph_level">
+										<input type="number" name="phLevelMin" step=".01" style="text-align: left; width: 80px; height: 40px; font-size: 20px; font-weight: 600;">
+										<input type="number" name="phLevelMax" step=".01" style="text-align: left; margin-left: 311px; width: 80px; height: 40px; font-size: 20px; font-weight: 600;">
 										<button type="submit" name="submitpHLevel" class="btn btn-app" style="float: right; margin-right: 20px">
 											<i class="fas fa-edit"></i> Update
 										</button>

@@ -7,7 +7,7 @@
 	google.charts.setOnLoadCallback(drawChart);
 
 	function drawChart(){
-	    var data = new google.visualization.DataTable(<?php echo $jsonTable = displayChartpH(); ?>);
+	    var data = new google.visualization.DataTable(<?php echo $jsonTable = displayChartpHLevel(); ?>);
 	    var options = {
 	        title:'pH Level',
 	        legend:{position:'bottom'},
@@ -16,7 +16,7 @@
 	        	format: 'd MMM HH:mm'
 	        }
 	    };
-	    var chart = new google.visualization.LineChart(document.getElementById('line_chart_airHum'));
+	    var chart = new google.visualization.LineChart(document.getElementById('line_chart_pHLevel'));
 	    chart.draw(data, options);
 	}
 </script>
@@ -27,4 +27,4 @@
 	}
 </style>
 <script src="jquery-1.11.3.min.js"></script>
-<div id="line_chart_airHum" style="width: 100%; height: 350px"></div>
+<div id="line_chart_pHLevel" style="width: 100%; height: 350px"></div>

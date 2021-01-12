@@ -42,4 +42,15 @@
      	}
 		freeResult($result);
 	}
+
+	function phLevelReadings(){
+		$result = getphLevelReadings();
+		while ($row=mysqli_fetch_row($result)){
+            echo "<tr>";
+            echo "<td>".$row[1]."</td>";
+            echo "<td>".$row[2]."</td>";
+            echo "</tr>";
+     	}
+		freeResult($result);
+	}
 ?>

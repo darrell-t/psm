@@ -116,6 +116,35 @@
 		}
 
 	}
+	else if(isset($_GET['submitpHLevel'])){
+		if(!empty($_GET['phLevelMax'])){
+			if(!empty($_GET['phLevelMin'])){
+				$lightIntMax = $_GET['phLevelMax'];
+				$lightIntMin = $_GET['phLevelMin'];
+				$sensorName = $_GET['sensorName'];
+				updateThresholdMinMax($sensorName, $lightIntMin, $lightIntMax);
+				header("location:../ApplicationLayer/sensorsView.php");
+			}
+			else{
+				$lightIntMax = $_GET['phLevelMax'];
+				$sensorName = $_GET['sensorName'];
+				updateThresholdMax($sensorName, $lightIntMax);
+				header("location:../ApplicationLayer/sensorsView.php");
+			}
+		}
+		else{
+			if(!empty($_GET['phLevelMin'])){
+				$lightIntMin = $_GET['phLevelMin'];
+				$sensorName = $_GET['sensorName'];
+				updateThresholdMin($sensorName, $lightIntMin);
+				header("location:../ApplicationLayer/sensorsView.php");
+			}
+			else{
+				header("location:../ApplicationLayer/sensorsView.php?input=false");
+			}
+		}
+
+	}
 	else{
 		header("location:../ApplicationLayer/sensorsView.php?input=false");
 	}

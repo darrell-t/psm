@@ -138,4 +138,39 @@
         $jsonTable = json_encode($table, true);
         return $jsonTable;
     }
+
+    function fetchChartpHLevel(){
+        global $conn;
+        $query = "SELECT value, UNIX_TIMESTAMP(sensorTime) AS datetime FROM ph_level ORDER BY sensorTime DESC";
+        $result = mysqli_query($conn, $query);
+        $rows = array();
+        $table = array();
+        $table['cols'] = array(
+            array(
+	            'label' => 'Date Time', 
+	            'type' => 'date',
+        	),
+	        array(
+	            'label' => 'pH Level', 
+	            'type' => 'number'
+	        )
+        );
+        while($row = mysqli_fetch_array($result))
+        {
+            $sub_array = array();
+            $datetime = explode(".", $row["datetime"]);
+            $sub_array[] =  array(
+                "v" => 'Date(' . $datetime[0] . '000)'
+            );
+            $sub_array[] =  array(
+                "v" => $row["value"]
+            );
+            $rows[] =  array(
+                "c" => $sub_array
+            );
+        }
+        $table['rows'] = $rows;
+        $jsonTable = json_encode($table, true);
+        return $jsonTable;
+    }
 ?>

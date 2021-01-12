@@ -15,4 +15,7 @@
 	if(isset($_GET["exportAirHum"])){
 		generateAirHum();
 	}
+	if(isset($_GET["exportphLevel"])){
+		generatephLevel();
+	}
 ?>

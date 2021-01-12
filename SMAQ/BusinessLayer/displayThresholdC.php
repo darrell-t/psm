@@ -39,6 +39,15 @@
 		echo $minRange;
 	}
 
+	function displayphLevelMax(){
+		$maxRange = phLevelMax();
+		echo $maxRange;
+	}
+
+	function displayphLevelMin(){
+		$minRange = phLevelMin();
+		echo $minRange;
+	}
 
 
 ?>
