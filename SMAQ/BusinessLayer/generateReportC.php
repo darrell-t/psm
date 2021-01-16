@@ -1,5 +1,11 @@
 <?php
+	session_start();
+	if(!isset($_SESSION['login'])){
+		header("Location: loginView.php");
+		exit;
+	}
 	include "../BusinessLayer/generateReportM.php";
+	
 	if(isset($_GET["exportWaterTemp"])){
 		generateWaterTemp();
 	}

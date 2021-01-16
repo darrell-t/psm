@@ -113,7 +113,7 @@
         $table['cols'] = array(
             array(
 	            'label' => 'Date Time', 
-	            'type' => 'date',
+	            'type' => 'datetime',
         	),
 	        array(
 	            'label' => 'Light Intensity (lx)', 
@@ -148,7 +148,7 @@
         $table['cols'] = array(
             array(
 	            'label' => 'Date Time', 
-	            'type' => 'date',
+	            'type' => 'datetime',
         	),
 	        array(
 	            'label' => 'pH Level', 

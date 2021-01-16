@@ -80,9 +80,9 @@
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="./index3.html" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
-										<p>Sign Out</p>
+									<a href="loginView.php?logout" class="nav-link">
+							  			<i class="fas fa-sign-out-alt nav-icon"></i>
+							  			<p>Sign Out</p>
 									</a>
 								</li>
 							</ul>
