@@ -21,10 +21,10 @@ SoftwareSerial fromUno(D6, D5); // RX, TX
 DHT dht(DHTPIN, DHTTYPE);
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
-const char *ssid = "WIFI";  //WiFi details
-const char *password = "PW";  //WiFi details
+const char *ssid = "WIFI ID";  //WiFi details
+const char *password = "WIFI PW";  //WiFi details
 const int ldrPin = A0;
-EMailSender emailSend("EXAMPLE@gmail.com", "PW"); // Email sender account
+EMailSender emailSend("smaqsystest@gmail.com", "PW"); // Email sender account
 
 struct sensorCondition {
   float readings;
@@ -136,7 +136,7 @@ struct sensorCondition readphLevel() {
             EMailSender::EMailMessage message;
             message.subject = "SMAQ System Alert (pH Level)";
             message.message = "pH Level is at " + String(phValue.readings);
-            EMailSender::Response resp = emailSend.send("EXAMPLE@gmail.com", message);
+            EMailSender::Response resp = emailSend.send("smaqsystest@gmail.com", message);
             Serial.println("Sending status: ");
             //Serial.println(resp.code);
             //Serial.println(resp.desc);
@@ -172,7 +172,7 @@ struct sensorCondition readWaterTemp(float wTempMax, float wTempMin){
         EMailSender::EMailMessage message;
         message.subject = "SMAQ System Alert (Water Temperature)";
         message.message = "Water temperature is at " + String(waterTemp.readings) + "°C";
-        EMailSender::Response resp = emailSend.send("EXAMPLE@gmail.com", message);
+        EMailSender::Response resp = emailSend.send("smaqsystest@gmail.com", message);
         Serial.println("Sending status: ");
         //Serial.println(resp.code);
         //Serial.println(resp.desc);
@@ -205,7 +205,7 @@ struct sensorCondition readAirTemp(float aTempMax, float aTempMin){
         EMailSender::EMailMessage message;
         message.subject = "SMAQ System Alert (Air Temperature)";
         message.message = "Air Temperature is at " + String(airTemp.readings) + "°C";
-        EMailSender::Response resp = emailSend.send("EXAMPLE@gmail.com", message);
+        EMailSender::Response resp = emailSend.send("smaqsystest@gmail.com", message);
         Serial.println("Sending status: ");
         //Serial.println(resp.code);
         //Serial.println(resp.desc);
@@ -238,7 +238,7 @@ struct sensorCondition readAirHum(float aHumMax, float aHumMin){
         EMailSender::EMailMessage message;
         message.subject = "SMAQ System Alert (Relative Humidity)";
         message.message = "Relative Humidity is at " + String(airHum.readings) + "%";
-        EMailSender::Response resp = emailSend.send("EXAMPLE@gmail.com", message);
+        EMailSender::Response resp = emailSend.send("smaqsystest@gmail.com", message);
         Serial.println("Sending status: ");
         //Serial.println(resp.code);
         //Serial.println(resp.desc);
@@ -271,7 +271,7 @@ struct sensorCondition readLightInt(float lightMax, float lightMin){
         EMailSender::EMailMessage message;
         message.subject = "SMAQ System Alert (Light Intensity)";
         message.message = "Light Intensity is at " + String(lightInt.readings) + "lx";
-        EMailSender::Response resp = emailSend.send("EXAMPLE@gmail.com", message);
+        EMailSender::Response resp = emailSend.send("smaqsystest@gmail.com", message);
         Serial.println("Sending status: ");
         //Serial.println(resp.code);
         //Serial.println(resp.desc);
